@@ -1,123 +1,61 @@
 package com.hig.cm.entity;
 
 import jakarta.validation.constraints.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
+@Getter
+@Setter
 public class Case {
     @NotNull
     @Size(min=8, max=8)
     @Pattern(regexp = "^[A-Z0-9]{8}$")
-    private String id;
+    private String caseid;
 
     @NotNull
     @Size(min=8, max=8)
     @Pattern(regexp = "^[A-Z0-9]{8}$")
-    private String clientId;
+    private String clntid;
 
     @NotNull
     @Min(0)
     @Max(9999999)
-    private int employeeCount;
+    private int emplyeecnt;
 
     @Min(0)
     @Max(9999)
-    private int SLSOFFCCD;
-
-    @Min(0)
-    @Max(9999)
-    private int STTSCD;
+    private int slsoffccd;
 
     @NotNull
-    private Date coverageEffectiveDate;
+    private Date cvrgeffctvdt;
 
+    @Size(max = 2)
+    private String stssttcd;
+    @Size(max = 4)
+    private String sttscd;
+
+    @Size(min=8, max=8)
     @Pattern(regexp = "^[A-Z0-9]{8}$")
-    private String pendingCaseId;
+    private String pndngcaseid;
+
+    @Size(max = 1)
+    private String cnvrsnind;
+
+    private Date casetrmdt;
+
+    @Size(max = 4)
+    private String spnsrid;
+
+    @Max(9999)
+    private int imsoffcid;
+
+    private int prismclntid;
 
     private Client client;
     private Sponsor sponsor;
     private SaveRestart saveRestart;
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public Sponsor getSponsor() {
-        return sponsor;
-    }
-
-    public void setSponsor(Sponsor sponsor) {
-        this.sponsor = sponsor;
-    }
-
-    public SaveRestart getSaveRestart() {
-        return saveRestart;
-    }
-
-    public void setSaveRestart(SaveRestart saveRestart) {
-        this.saveRestart = saveRestart;
-    }
-
-    public Case() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
-
-    public int getEmployeeCount() {
-        return employeeCount;
-    }
-
-    public void setEmployeeCount(int employeeCount) {
-        this.employeeCount = employeeCount;
-    }
-
-    public int getSLSOFFCCD() {
-        return SLSOFFCCD;
-    }
-
-    public void setSLSOFFCCD(int SLSOFFCCD) {
-        this.SLSOFFCCD = SLSOFFCCD;
-    }
-
-    public int getSTTSCD() {
-        return STTSCD;
-    }
-
-    public void setSTTSCD(int STTSCD) {
-        this.STTSCD = STTSCD;
-    }
-
-    public Date getCoverageEffectiveDate() {
-        return coverageEffectiveDate;
-    }
-
-    public void setCoverageEffectiveDate(Date coverageEffectiveDate) {
-        this.coverageEffectiveDate = coverageEffectiveDate;
-    }
-
-    public String getPendingCaseId() {
-        return pendingCaseId;
-    }
-
-    public void setPendingCaseId(String pendingCaseId) {
-        this.pendingCaseId = pendingCaseId;
-    }
+    public Case() {}
 }

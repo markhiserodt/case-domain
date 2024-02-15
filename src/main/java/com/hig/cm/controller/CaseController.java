@@ -19,7 +19,7 @@ import java.util.List;
     scheme = "bearer"
 )
 @RestController
-@RequestMapping("/case")
+@RequestMapping("/caseDetails")
 public class CaseController {
 
     @SecurityRequirement(name = "Authorization")
@@ -32,7 +32,6 @@ public class CaseController {
     public Case getCase(@RequestParam(name = "caseName") String caseName,
                         @MatrixVariable(name = "fields", pathVar = "caseName", required = false) List<String> fields) {
         return new Case();
-
     }
 
     @SecurityRequirement(name = "Authorization")
