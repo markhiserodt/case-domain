@@ -31,7 +31,7 @@ public class CaseController {
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Case getCase(@RequestParam(name = "caseName") String caseName,
                         @MatrixVariable(name = "fields", pathVar = "caseName", required = false) List<String> fields) {
-        Case case = new Case();
+        return new Case();
 
     }
 
